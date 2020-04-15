@@ -32,6 +32,8 @@
         android:layout_marginEnd="127dp"
         android:layout_marginBottom="152dp"
         android:alpha="0"
+        android:scaleX="0"
+        android:scaleY="0"
         android:onClick="eraseTom"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

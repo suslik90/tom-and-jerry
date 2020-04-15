@@ -14,31 +14,41 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ImageView tomImageView = findViewById(R.id.tomImageView);
-        tomImageView.animate().rotation(180).setDuration(3000);
+        //tomImageView.animate().rotation(180).setDuration(3000);// rotation animation
+        //tomImageView.animate().scaleY(0.01f).scaleX(0.01f).rotation(3600).setDuration(3000); // scale x/y animation
+//        tomImageView.animate().translationXBy(100).setDuration(3000);// translation animation
 
     }
     int tomAlpha = 0;
     int jerryAlpha = 1;
     boolean isTomVisible = true;
+    float tomScaleY;
+    float tomScaleX;
+    float jerryScaleY;
+    float jerryScaleX;
+    int rotationDeg = 3600;
+    int duration = 3000;
 
     public void eraseTom(View view) {
 
         if(isTomVisible){
-            tomAlpha = 0;
-            jerryAlpha = 1;
-            isTomVisible = false;
+            tomScaleY=0;
+            tomScaleX=0;
+            jerryScaleX = 1;
+            jerryScaleY = 1;
         }
         else{
-            tomAlpha = 1;
-            jerryAlpha = 0;
-            isTomVisible = true;
+            tomScaleY=1;
+            tomScaleX=1;
+            jerryScaleX = 0;
+            jerryScaleY = 0;
         }
 
         ImageView tomImageView = findViewById(R.id.tomImageView);
-        tomImageView.animate().alpha(tomAlpha).setDuration(3000);
+        tomImageView.animate().alpha(tomAlpha).scaleY(tomScaleY).scaleX(tomScaleX).rotation(tomImageView.getRotation()+rotationDeg).setDuration(duration);
 
         ImageView jerryImageView = findViewById(R.id.jerryImageView);
-        jerryImageView.animate().alpha(jerryAlpha).setDuration(3000);
+        jerryImageView.animate().alpha(jerryAlpha).scaleY(jerryScaleY).scaleX(jerryScaleX).rotation(jerryImageView.getRotation()+rotationDeg).setDuration(duration);
 
     }
 }
